@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 
-const MONGO_URL = ""
+const MONGO_URL = "";
 
 async function main() {
     await mongoose.connect()
