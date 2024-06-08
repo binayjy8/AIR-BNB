@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 
+async function main() {
+    
+}
+
 app.get("/", (req, res) => {
     res.send("hy, i'm the root");
 });
