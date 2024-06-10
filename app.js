@@ -9,7 +9,7 @@ async function main() {
 }
 
 app.get("/", (req, res) => {
-    res.send("hy, i'm the root");
+    res.send("Hy, i'm the root");
 });
 
 app.listen(8080, ()=> {
