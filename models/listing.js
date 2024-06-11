@@ -9,3 +9,5 @@ const listingSchema = new Schema ({
     location: String,
     country: String, 
 });
+
+const listing = mongoose.model("listing", listingSchema);
