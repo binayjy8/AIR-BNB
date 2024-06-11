@@ -9,7 +9,7 @@ const listingSchema = new Schema ({
     description: String,
     image: {
         type: String,
-        set: (v) => v===""
+        set: (v) => v==="https://unsplash.com/photos/green-trees-on-island-surrounded-by-water-during-daytime-hZ6tMbkAIMk"
         ? "" : v,
     },
     price: Number,
