@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Listing = require("./models/listing.js");
+
 
 const listingSchema = new Schema ({
     title: {
@@ -19,4 +19,4 @@ const listingSchema = new Schema ({
 });
 
 const listing = mongoose.model("listing", listingSchema);
-module.export = listing;
+module.exports = listing;
