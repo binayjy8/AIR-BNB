@@ -9,7 +9,15 @@ const listingSchema = new Schema ({
     },
     description: String,
     image: {
-        type: String,
+        type: Object,
+        required: true, 
+        properties: {
+            filename: { type: String },
+            url: {
+                type: String,
+                required: true,
+            },
+        },
         default: 
                 "https://unsplash.com/photos/green-trees-on-island-surrounded-by-water-during-daytime-hZ6tMbkAIMk",
         set: (v) => 
@@ -22,5 +30,5 @@ const listingSchema = new Schema ({
     country: String, 
 });
 
-const Listing = mongoose.model("listing", listingSchema);
+const Listing = mongoose.model("Listing", listingSchema);
 module.exports = Listing;
