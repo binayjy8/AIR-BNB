@@ -21,18 +21,20 @@ app.get("/", (req, res) => {
     res.send("Hy, i'm the root");
 });
 
-app.get("/testlisting", async (req, res) => {
-    let sampleListing = new Listing({
-        title: "My new Villa",
-        description: "By the beach",
-        price: 3000,
-        location: "calangute, Goa",
-        country: "Goa",
-    });
-    await sampleListing.save();
-    console.log("sample was saved");
-    res.send("successful testing");
-});
+app.get("/listings")
+
+// app.get("/testlisting", async (req, res) => {
+//     let sampleListing = new Listing({
+//         title: "My new Villa",
+//         description: "By the beach",
+//         price: 3000,
+//         location: "calangute, Goa",
+//         country: "Goa",
+//     });
+//     await sampleListing.save();
+//     console.log("sample was saved");
+//     res.send("successful testing");
+// });
 
 app.listen(8080, ()=> {
     console.log("listening to the port");
