@@ -21,7 +21,9 @@ app.get("/", (req, res) => {
     res.send("Hy, i'm the root");
 });
 
-app.get("/listings")
+app.get("/listings", (req, res) => {
+    
+})
 
 // app.get("/testlisting", async (req, res) => {
 //     let sampleListing = new Listing({
