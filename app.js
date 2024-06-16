@@ -22,8 +22,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/listings", (req, res) => {
-    
-})
+    Listing.find({}).then((res) => {
+        console.log(res);
+    });
+});
 
 // app.get("/testlisting", async (req, res) => {
 //     let sampleListing = new Listing({
