@@ -31,6 +31,8 @@ app.get("/listings", async (req, res) => {
     res.render("listings/index.ejs", {allListings});
 });
 
+app.get()
+
 // app.get("/testlisting", async (req, res) => {
 //     let sampleListing = new Listing({
 //         title: "My new Villa",
