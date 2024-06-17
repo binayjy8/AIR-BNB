@@ -31,7 +31,9 @@ app.get("/listings", async (req, res) => {
     res.render("listings/index.ejs", {allListings});
 });
 
-app.get()
+app.get("/listings/:id", async (req, res) => {
+    let {id} = req.params;
+})
 
 // app.get("/testlisting", async (req, res) => {
 //     let sampleListing = new Listing({
