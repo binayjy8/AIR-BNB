@@ -33,8 +33,12 @@ app.get("/listings", async (req, res) => {
 
 app.get("/listings/:id", async (req, res) => {
     let {id} = req.params;
-    const listing = await Listing.findById(id);
-    res.render("listings/show.ejs", {listing});
+    try {
+        const listing = await Listing.findById(id);
+        res.render("listings/show.ejs", { listing });
+    } catch (error) {
+        res.status(404).send ("Listing not found");
+    }
 });
 
 // app.get("/testlisting", async (req, res) => {
