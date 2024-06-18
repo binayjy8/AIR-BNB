@@ -20,7 +20,7 @@ async function main() {
     await mongoose.connect(MONGO_URL);
 }    
 
-app.set("view engine");
+app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({extended: true}));
 
@@ -33,12 +33,8 @@ app.get("/listings", async (req, res) => {
 
 app.get("/listings/:id", async (req, res) => {
     let {id} = req.params;
-    try {
-        const listing = await Listing.findById(id);
-        res.render("listings/show.ejs", { listing });
-    } catch {
-        res.status(404).send("Listing not found");
-    }
+    const listing = await Listing.findById(id);
+    res.render("listings/show.ejs", { listing });
 });
 
 // app.get("/testlisting", async (req, res) => {
