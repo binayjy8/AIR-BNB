@@ -37,6 +37,8 @@ app.get("/listings/:id", async (req, res) => {
     res.render("listings/show.ejs", { listing });
 });
 
+app.get()
+
 // app.get("/testlisting", async (req, res) => {
 //     let sampleListing = new Listing({
 //         title: "My new Villa",
