@@ -39,7 +39,9 @@ app.get("/listings/:id", async (req, res) => {
     res.render("listings/show.ejs", { listing });
 });
 
-
+app.post("/listings", (req, res) => {
+    let {title, description, image, price, country, location} = req.body;
+});
 
 // app.get("/testlisting", async (req, res) => {
 //     let sampleListing = new Listing({
