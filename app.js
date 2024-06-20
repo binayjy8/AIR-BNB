@@ -53,6 +53,12 @@ app.get("/listings/:id/edit", async (req, res) => {
     res.render("listings/edit.ejs", { listing });
 });
 
+app.put("/listings/:id", async (req, res) => {
+    let {id} = req.params;
+    await Listing.findByIdAndUpdate(id, {...req.body.listing});
+    redirect("/listings");
+});
+
 // app.get("/testlisting", async (req, res) => {
 //     let sampleListing = new Listing({
 //         title: "My new Villa",
