@@ -12,7 +12,7 @@
     </form>
     <uL>
         <% for(let listing of allListings) { %>
-             <li><a href="/listings <%= listing.id %>"> <%= listing.title %> </a></li>
+             <li><a href="/listings/<%= listing.id %>"> <%= listing.title %> </a></li>
          <% } %>
      </uL>
 </body>
