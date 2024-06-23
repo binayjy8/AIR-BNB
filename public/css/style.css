@@ -1,5 +1,5 @@
  body {
-    background-color: aquamarine;
+    font-family: "Plus Jakarta Sans", sans-serif !important;
 }
 
 .navbar {
@@ -67,3 +67,4 @@
 .card-text p {
     font-weight: 400 !important;
 }
+
