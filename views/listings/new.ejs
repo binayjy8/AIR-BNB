@@ -10,10 +10,21 @@
     <form method="POST" action="/listings">
         <div>
             <label for="title" class="form-label">Title</label>
-            <input name="listing[title]" placeholder="enter title" type="text" class="form-control">
+            <input 
+            name="listing[title]" 
+            placeholder="enter title" 
+            type="text" 
+            class="form-control"
+            >
         </div>
-        <textarea name="listing[description]" placeholder="enter description"></textarea>
-        <br><br>
+        <div>
+            <label for="description" class="form-label">description</label>
+            <textarea 
+            name="listing[description]" 
+            placeholder="enter description"
+            class="form-control"
+            ></textarea>
+        </div>
         <input name="listing[image]" placeholder="enter image URL/LINK" type="text">
         <br><br>
         <input name="listing[price]" placeholder="enter price" type="number">
