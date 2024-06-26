@@ -52,8 +52,7 @@ app.post("/listings",
     const newListing = new Listing(req.body.listing);
     await newListing.save();
     res.redirect("/listings");
-     
-})
+    })
 );
 
 app.get("/listings/:id/edit", async (req, res) => {
@@ -77,7 +76,7 @@ app.delete("/listings/:id", async (req, res) => {
 
 
 app.use((err, req, res, next) => {
-    res.send("something went wrong");
+    res.send("something went wrong!");
 });
 
 app.listen(8080, ()=> {
