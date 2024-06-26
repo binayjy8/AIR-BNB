@@ -48,9 +48,14 @@ app.get("/listings/:id", async (req, res) => {
 });
 
 app.post("/listings", async (req, res) => {
-    const newListing = new Listing(req.body.listing);
+    try {
+        const newListing = new Listing(req.body.listing);
     await newListing.save();
     res.redirect("/listings");
+    } catch (err) {
+        next(err);
+    }
+    
 });
 
 app.get("/listings/:id/edit", async (req, res) => {
