@@ -117,6 +117,9 @@ app.post("/listings/:id/reviews",
     res.redirect(`/listings/${listing._id}`);
 }));
 
+//Delete review rout
+app.delete("")
+
 app.all("*", (req, res, next) => {
     next(new ExpressError (404, "Page Not Found!"));
 });
