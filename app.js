@@ -121,7 +121,7 @@ app.post("/listings/:id/reviews",
 app.delete(
     "/listings/:id/reviews/:reviewId", 
     wrapAsync(async(req, res) => {
-        let { id, reviewId } = req.body;
+        let { id, reviewId } = req.params;
     }));
 
 app.all("*", (req, res, next) => {
