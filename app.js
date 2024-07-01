@@ -47,6 +47,8 @@ const validateListing = (req, res, next) => {
     }
 };
 
+app.get("/listings", listings);
+
 const validateReview = (req, res, next) => {
     let { error } = reviewSchema.validate(req.body); 
     if(error) {
