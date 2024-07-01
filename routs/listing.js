@@ -49,3 +49,5 @@ router.delete("/listings/:id", wrapAsync(async (req, res) => {
    console.log(deletedListing);
    res.redirect("/listings");
 }));
+
+module.exports = router;
