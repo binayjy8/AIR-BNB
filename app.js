@@ -38,9 +38,6 @@ app.get("/", (req, res) => {
 });
 
 
-
-app.get("/listings", listings);
-
 const validateReview = (req, res, next) => {
     let { error } = reviewSchema.validate(req.body); 
     if(error) {
@@ -51,6 +48,7 @@ const validateReview = (req, res, next) => {
     }
 };
 
+app.get("/listings", listings);
 
 app.post("/listings/:id/reviews",
     validateReview,
