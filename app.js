@@ -49,7 +49,7 @@ const validateReview = (req, res, next) => {
 };
 
 app.use("/listings", listings);
-
+app.use("/listings/:id/reviews", reviews);
 
 
 app.all("*", (req, res, next) => {
