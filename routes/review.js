@@ -28,3 +28,5 @@ app.delete(
 
         res.redirect(`/listings/${id}`);
     }));
+
+    module.exports = router;
