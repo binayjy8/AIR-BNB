@@ -17,7 +17,7 @@ const validateListing = (req, res, next) => {
 
 router.get("/", wrapAsync(async (req, res) => {
     const allListings = await Listing.find({});
-    res.render("/index.ejs", { allListings });
+    res.render("listings/index.ejs", { allListings });
 }));
 
 router.get("/new", (req, res) => {
