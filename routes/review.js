@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
+//post review route
 app.post("/listings/:id/reviews",
     validateReview,
     wrapAsync(async (req, res) => {
