@@ -48,7 +48,7 @@ const validateReview = (req, res, next) => {
     }
 };
 
-app.get("/listings", listings);
+app.use("/listings", listings);
 
 app.post("/listings/:id/reviews",
     validateReview,
