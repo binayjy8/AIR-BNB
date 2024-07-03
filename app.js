@@ -35,6 +35,7 @@ app.get("/", (req, res) => {
     res.send("Hi i am root");
 });
 
+//app.use
 
 app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews);
