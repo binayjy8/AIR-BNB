@@ -37,6 +37,7 @@ app.get("/", (req, res) => {
 
 //app.use(cookieParser);
 //app.use(cookieParser);
+//app.use(cookieParser);
 
 
 app.use("/listings", listings);
