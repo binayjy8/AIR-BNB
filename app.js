@@ -32,7 +32,7 @@ app.use(methodOverride("_method"));
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
-const sessionOption = {
+const sessionOptions = {
     secret: "mysupersecretcode",
     resave: false,
     saveUninitialized: true
