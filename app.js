@@ -36,7 +36,7 @@ const sessionOption = {
     secret: "mysupersecretcode",
     resave: false,
     saveUninitialized: true
-}
+};
 
 app.get("/", (req, res) => {
     res.send("Hi i am root");
