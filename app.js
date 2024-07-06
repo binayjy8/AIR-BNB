@@ -38,6 +38,7 @@ const sessionOptions = {
     saveUninitialized: true,
     cookie: {
         expires: Date.now() + 7 * 60 * 60 * 1000,
+        maxAge: 7 * 60 * 60 * 1000
     }
 };
 
