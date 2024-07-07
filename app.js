@@ -51,6 +51,8 @@ app.get("/", (req, res) => {
 app.use(session(sessionOptions));
 app.use(flash());
 
+app.use()
+
 app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews);
 
