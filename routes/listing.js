@@ -40,7 +40,7 @@ router.post("/", validateListing,
        }
    const newListing = new Listing(req.body.listing);
    await newListing.save();
-   req.flash
+   req.flash("success")
    res.redirect("/listings");
    })
 );
