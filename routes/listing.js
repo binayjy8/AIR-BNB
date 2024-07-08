@@ -50,6 +50,7 @@ router.put("/:id", validateListing,
    wrapAsync(async (req, res) => {  
    let {id} = req.params;
    await Listing.findByIdAndUpdate(id, {...req.body.listing});
+   req.flash("success", "Listing Updated!");
    res.redirect(`/listings/${id}`);
 }));
 
