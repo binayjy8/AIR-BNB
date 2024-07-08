@@ -31,7 +31,7 @@ router.get(
     let {id} = req.params;
     const listing = await Listing.findById(id).populate("reviews");
     if(!listing) {
-        req.flash("error", "Listing ypu requested for doesn't exist");
+        req.flash("error", "Listing ypu requested for does not exist");
         res.redirect("/listings");
     }
     res.render("listings/show.ejs", { listing });
