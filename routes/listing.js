@@ -30,7 +30,9 @@ router.get(
     wrapAsync(async (req, res) => {
     let {id} = req.params;
     const listing = await Listing.findById(id).populate("reviews");
-    req.flash("error", "Listing ypu requested for doesn't exist");
+    if(!listing) {
+        req.flash("error", "Listing ypu requested for doesn't exist");
+    }
     res.render("listings/show.ejs", { listing });
 }));
 
