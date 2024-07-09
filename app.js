@@ -72,7 +72,9 @@ app.get("/demouser", async (req, res) => {
         email: "student@gmail.com",
         username: "college-student"
     })
-})
+
+    User.register(fakeUser, "helloworld");
+});
 
 app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews);
