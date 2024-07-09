@@ -73,7 +73,8 @@ app.get("/demouser", async (req, res) => {
         username: "college-student"
     })
 
-    User.register(fakeUser, "helloworld");
+    let registerdUser = await User.register(fakeUser, "helloworld");
+    res.send(registerdUser);
 });
 
 app.use("/listings", listings);
