@@ -78,8 +78,8 @@ app.get("/demouser", async (req, res) => {
     res.send(registerdUser);
 });
 
-app.use("/listings", listings);
-app.use("/listings/:id/reviews", reviews);
+app.use("/listings", listingRouter);
+app.use("/listings/:id/reviews", reviewRouter);
 
 
 app.all("*", (req, res, next) => {
