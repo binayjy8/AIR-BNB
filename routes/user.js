@@ -11,6 +11,8 @@ router.post("/signup", async(req, res)=> {
     const newUser = new User({email, username});
     const registerdUser = await User.register(newUser, password);
     console.log(registerdUser);
+    res.flash("success", "Welcome to Wanderlust!");
+    res.redirect("/listings");
 });
 
 module.exports = router;
