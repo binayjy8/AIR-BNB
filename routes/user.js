@@ -7,7 +7,7 @@ router.get("/signup", (req, res) => {
 });
 
 router.post("/signup", async(req, res)=> {
-    let {usernmae, email, password} = req.body;
+    let {username, email, password} = req.body;
     const newUser = new User({email, username});
     const registerdUser = await User.register(newUser, password);
     console.log(registerdUser);
