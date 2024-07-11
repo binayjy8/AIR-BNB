@@ -8,7 +8,7 @@ router.get("/signup", (req, res) => {
 
 router.post("/signup", async(req, res)=> {
     let {usernmae, email, password} = req.body;
-    User({email, username});
+    const newUser = new User({email, username});
 });
 
 module.exports = router;
