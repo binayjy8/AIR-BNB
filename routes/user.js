@@ -5,6 +5,8 @@ router.get("/signup", (req, res) => {
     res.render("users/signup.ejs");
 });
 
-router.get("/signup", async)
+router.post("/signup", async(req, res)=> {
+
+})
 
 module.exports = router;
