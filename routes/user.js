@@ -42,7 +42,8 @@ router.post(
     }), 
     async(req, res) => {
         req.flash("success", "welcome to wanderlust!");
-        res.redirect(res.locals.redirectUrl);
+        let redirectUrl = res.locals.redirectUrl || "/listings";
+        res.redirect();
 });
 
 router.get("/logout", (req, res, next) => {
