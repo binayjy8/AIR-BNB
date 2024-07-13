@@ -7,4 +7,6 @@ module.exports.isLoggedIn = (req, res, next) => {
     next();
 }
 
-module.exports.saveRedirectUrl
+module.exports.saveRedirectUrl = (req, res, next) => {
+    if ()
+}
