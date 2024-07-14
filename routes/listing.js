@@ -72,6 +72,7 @@ router.get("/:id/edit",
 //Update Route
 router.put("/:id",
    isLoggedIn,
+   isOwner,
    validateListing, 
    wrapAsync(async (req, res) => {  
    let {id} = req.params;
