@@ -76,6 +76,9 @@ router.put("/:id",
    wrapAsync(async (req, res) => {  
    let {id} = req.params;
    let listing = await Listing.findById(id);
+   if(!listing.owner.equals(crrUser._id)) {
+    req.flash("error", "you dont't have permission to edit");
+   }
 
    await Listing.findByIdAndUpdate(id, {...req.body.listing});
    req.flash("success", "Listing Updated!");
