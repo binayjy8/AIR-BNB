@@ -32,8 +32,9 @@
     </div>
     <% } %>
 
-    <% if(crrUser) { %>
+    
     <div class="col-8 offset-3 mb-3">
+        <% if(crrUser) { %>
         <h4>Leave a comment</h4>
         <hr>
         <form action="/listings/<%= listing.id%>/reviews" method="POST"
@@ -62,8 +63,9 @@
                 </div>
             </div>
             <button class="btn btn-outline-dark">Submit</button>
+            <% } %>
         </form>
-        <% } %>
+      
         <hr>
 
         <p><b>All Reviews</b></p>
