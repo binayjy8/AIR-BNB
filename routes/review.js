@@ -28,6 +28,7 @@ router.post("/",
 //Delete review rout
 router.delete(
     "/:reviewId", 
+    isLoggedIn,
     wrapAsync(async(req, res) => {
         let { id, reviewId } = req.params;
 
