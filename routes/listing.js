@@ -28,15 +28,7 @@ router.post("/",
 router.get("/:id/edit",
    isLoggedIn,
    isOwner,
-   wrapAsync(async (req, res) => {
-   let {id} = req.params;
-   const listing = await Listing.findById(id);
-   if(!listing) {
-    req.flash("error", "Listing you requested for does not exist!");
-    res.redirect("/listings");
-}
-   res.render("listings/edit.ejs", { listing });
-}));
+   wrapAsync(listingController.renderEditForm));
 
 
 //Update Route
@@ -44,12 +36,7 @@ router.put("/:id",
    isLoggedIn,
    isOwner,
    validateListing, 
-   wrapAsync(async (req, res) => {  
-   let {id} = req.params;
-   await Listing.findByIdAndUpdate(id, {...req.body.listing});
-   req.flash("success", "Listing Updated!");
-   res.redirect(`/listings/${id}`);
-}));
+   wrapAsync(listingController.updateListing));
 
 
 //Delete Route
