@@ -13,16 +13,10 @@ router.get("/", wrapAsync(listingController.index));
 router.get("/new", isLoggedIn, listingController.renderNewForm);
 
 //Show Route
-router.get(
-    "/:id", 
-    wrapAsync(listingController.showListing));
+router.get("/:id", wrapAsync(listingController.showListing));
 
 //Create Route
-router.post("/",
-   isLoggedIn, 
-   validateListing,
-   wrapAsync(listingController.createListing)
-);
+router.post("/",isLoggedIn, validateListing,wrapAsync(listingController.createListing));
 
 //Edit Route
 router.get("/:id/edit",
