@@ -8,21 +8,31 @@ const listingController = require("../controllers/listings.js");
 
 router
    .route("/")
-   .get("/", wrapAsync(listingController.index))
-   .post("/",isLoggedIn, validateListing,wrapAsync(listingController.createListing)
+   .get( wrapAsync(listingController.index))
+   .post(isLoggedIn, validateListing,wrapAsync(listingController.createListing)
 );
-
-//Index Route
-router
 
 //New Rout
 router.get("/new", isLoggedIn, listingController.renderNewForm);
 
-//Show Route
-router.get("/:id", wrapAsync(listingController.showListing));
+router
+   .route(":id")
+   .get(wrapAsync(listingController.showListing))
+   .put(
+      isLoggedIn,
+      isOwner,
+      validateListing, 
+      wrapAsync(listingController.updateListing))
+   .delete(
+      isLoggedIn, 
+      isOwner,
+      wrapAsync(listingController.destroyListing));
+      
+      
+   
 
-//Create Route
-router;
+
+
 
 //Edit Route
 router.get("/:id/edit",
@@ -30,20 +40,5 @@ router.get("/:id/edit",
    isOwner,
    wrapAsync(listingController.renderEditForm));
 
-
-//Update Route
-router.put("/:id",
-   isLoggedIn,
-   isOwner,
-   validateListing, 
-   wrapAsync(listingController.updateListing));
-
-
-//Delete Route
-router.delete(
-   "/:id",
-   isLoggedIn, 
-   isOwner,
-   wrapAsync(listingController.destroyListing));
 
 module.exports = router;
