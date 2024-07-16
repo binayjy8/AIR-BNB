@@ -16,7 +16,7 @@ router
 router.get("/new", isLoggedIn, listingController.renderNewForm);
 
 router
-   .route(":id")
+   .route("/:id")
    .get(wrapAsync(listingController.showListing))
    .put(
       isLoggedIn,
@@ -29,11 +29,6 @@ router
       wrapAsync(listingController.destroyListing));
       
       
-   
-
-
-
-
 //Edit Route
 router.get("/:id/edit",
    isLoggedIn,
