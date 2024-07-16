@@ -5,7 +5,7 @@ const Listing = require("../models/listing.js");
 const { isLoggedIn, isOwner,validateListing } = require("../middleware.js");
 
 
-
+//Index Route
 router.get("/", wrapAsync());
 
 //New Rout
