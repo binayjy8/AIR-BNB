@@ -10,9 +10,7 @@ const listingController = require("../controllers/listing.js");
 router.get("/", wrapAsync(listingController.index));
 
 //New Rout
-router.get("/new", isLoggedIn, (req, res) => {
-    res.render("listings/new.ejs");
-});
+router.get("/new", isLoggedIn, );
 
 //Show Route
 router.get(
