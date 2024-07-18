@@ -50,7 +50,7 @@ module.exports.createListing = (async (req, res, next) => {
 
     module.exports.updateListing = (async (req, res) => {  
         let {id} = req.params;
-        await Listing.findByIdAndUpdate(id, {...req.body.listing});
+        let listing = await Listing.findByIdAndUpdate(id, {...req.body.listing});
 
         let url = req.file.path;
         let filename = req.file.filename;
