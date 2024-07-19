@@ -44,6 +44,8 @@ module.exports.createListing = (async (req, res, next) => {
          req.flash("error", "Listing you requested for does not exist!");
          res.redirect("/listings");
      }
+
+        let originalImageUrl = listing.image.url;
         res.render("listings/edit.ejs", { listing });
      }
     );
