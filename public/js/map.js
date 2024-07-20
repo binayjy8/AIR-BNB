@@ -1,5 +1,5 @@
 <script>
-    let mapToken = "<%= process.env.MAP_TOKEN %>";
+    let mapToken = 
 	mapboxgl.accessToken = mapToken;
 
     const map = new mapboxgl.Map({
