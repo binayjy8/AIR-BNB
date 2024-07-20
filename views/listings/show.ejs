@@ -132,3 +132,11 @@
         <div id="map"></div>
     </div>
 </div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiYmluYXlqeS04IiwiYSI6ImNseXN0MXFmZTBnaDgya3FsZ3NobnlwMXcifQ.BZvREDG6bF8zDKVvT1BPog';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        center: [-74.5, 40], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom: 9 // starting zoom
+    });
+</script>
