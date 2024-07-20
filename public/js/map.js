@@ -1,5 +1,5 @@
 <script>
-    let mapToken = 
+    let mapToken = mapToken;
 	mapboxgl.accessToken = mapToken;
 
     const map = new mapboxgl.Map({
