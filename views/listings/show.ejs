@@ -35,8 +35,8 @@
     
     <div class="col-8 offset-3 mb-3">
         <% if(crrUser) { %>
+            <hr>
         <h4>Leave a comment</h4>
-        <hr>
         <form action="/listings/<%= listing.id%>/reviews" method="POST"
             novalidate
             class="needs-validation"
