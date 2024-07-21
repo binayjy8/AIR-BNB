@@ -105,7 +105,11 @@
   taxSwitch.addEventListener("click", ()=> {
     let taxInfo = document.getElementsByClassName("tax-info");
     for (info of taxinfo) {
-      info.style.display = "inline";
+      if (info.style.taxInfo != "inline") {
+        info.style.display = "inline";
+      } else {
+        info.style.display = "none";
+      }
     }
   });
 </script>
