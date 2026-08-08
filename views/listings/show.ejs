@@ -2,47 +2,65 @@
 <script>
     const mapToken = "<%= process.env.MAP_TOKEN %>";
 </script>
-<div class="row mt-3">
-    <div class="col-8 offset-3 ">
-    <h3><b><%= listing.title %></b> </h3>
-    </div>
-
-    <div class="card col-6 offset-3 show-card listing-card">
-        <img src="<%= listing.image.url %>" 
-        class="card-img-top show-img" 
-        alt="listing_image"
-        >
-        <div class="card-body">
-          <p class="card-text">Owned by <i><%= listing.owner.username %></i></p>
-           <p><%= listing.description %></p>  
-            <p>&#8377; <%= listing.price.toLocaleString("en-IN") %></p>
-            <p><%= listing.location %></p>
-            <p><%= listing.country %></p>
+<main class="listing-show mt-4">
+    <section class="listing-hero">
+        <div class="listing-hero-heading">
+            <div>
+                <h2><%= listing.title %></h2>
+                <p><i class="fa-solid fa-location-dot"></i> <%= listing.location %>, <%= listing.country %></p>
+            </div>
+            <% if(crrUser && listing.owner._id.equals(crrUser._id)) { %>
+            <div class="owner-actions">
+                <a href="/listings/<%= listing._id %>/edit" class="btn edit-btn">Edit</a>
+                <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+                    <button class="btn delete-btn">Delete</button>
+                </form>
+            </div>
+            <% } %>
         </div>
-    </div>
 
-   
-    <br>
-    <% if(crrUser && listing.owner._id.equals(crrUser._id)) { %>
-    <div class="btns">
-        <a href="/listings/<%= listing._id %>/edit" 
-            class="btn btn-dark col-1 offset-3 edit-btn">
-            Edit</a>
-        
-        <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
-            <button class="btn btn-dark offset-5">Delete</button>
-        </form>
-    </div>
-    <% } %>
+        <img src="<%= listing.image.url %>"
+            class="listing-show-img"
+            alt="<%= listing.title %>"
+        >
+    </section>
 
-    
-    <div class="col-8 offset-3 mb-3">
+    <section class="listing-details-grid">
+        <div class="listing-main-info">
+            <div class="host-line">
+                <div>
+                    <h4>Hosted by <%= listing.owner.username %></h4>
+                    <p>Private stay in <%= listing.location %></p>
+                </div>
+                <div class="host-avatar"><%= listing.owner.username[0].toUpperCase() %></div>
+            </div>
+
+            <hr>
+
+            <div class="listing-description">
+                <h4>About this place</h4>
+                <p><%= listing.description %></p>
+            </div>
+        </div>
+
+        <aside class="booking-card">
+            <p class="booking-price">&#8377; <%= listing.price.toLocaleString("en-IN") %> <span>/ night</span></p>
+            <div class="booking-meta">
+                <span><i class="fa-solid fa-star"></i> New</span>
+                <span><%= listing.reviews.length %> reviews</span>
+            </div>
+            <button class="btn reserve-btn">Reserve</button>
+            <p class="booking-note">You won't be charged yet</p>
+        </aside>
+    </section>
+
+    <section class="reviews-section">
         <% if(crrUser) { %>
             <hr>
-        <h4>Leave a comment</h4>
+        <h4>Leave a review</h4>
         <form action="/listings/<%= listing.id%>/reviews" method="POST"
             novalidate
-            class="needs-validation"
+            class="needs-validation review-form"
             >
            
             <div class="mb-3 mt-3">
@@ -107,33 +125,35 @@
                     Please add some comments for review
                 </div>
             </div>
-            <button class="btn btn-outline-dark">Submit</button>
+            <button class="btn submit-review-btn">Submit</button>
             <hr>
         </form>
         <% } %>
     
          <% if(listing.reviews.length > 0 ) { %>
-            <div class="row">
-                <p><b>All Reviews</b></p>
+            <div class="reviews-grid">
+                <h4>All Reviews</h4>
             <% for(review of listing.reviews) { %>
-            <div class="card col-5 ms-3 mb-3">
+            <div class="card review-card">
                 <div class="card-body">
                     <h5 class="card-title">@<%= review.author.username %></h5>
                     <p class="starability-result card-text" data-rating="<%= review.rating%>"></p>
                     <p class="card-text"><%= review.comment %></p>
                 </div>
-                <form class="mb-3" method="POST" action="/listings/<%= listing._id%>/reviews/<%=review._id%>?_method=DELETE">
-                    <button class="btn btn-sm btn-dark">Delete</button>
+                <form class="review-delete-form" method="POST" action="/listings/<%= listing._id%>/reviews/<%=review._id%>?_method=DELETE">
+                    <button class="btn btn-sm delete-review-btn">Delete</button>
                 </form>
             </div>    
            <% } %>
             </div>
             <% } %>
-    </div>
-    <div class="col-6 offset-3 mb-3">
-        <h3>where you'll be</h3>
+    </section>
+
+    <section class="location-section mb-4">
+        <h3>Where you'll be</h3>
+        <p><%= listing.location %>, <%= listing.country %></p>
         <div id="map"></div>
-    </div>
-</div>
+    </section>
+</main>
 
 <script src="/js/map.js"></script>

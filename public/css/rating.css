@@ -195,3 +195,56 @@
     -webkit-transition: background-position .7s;
     transition: background-position .7s;
   }
+
+/* Airbnb-style rating polish */
+.starability-slot {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 999px;
+  height: 42px;
+  margin-top: 0.35rem;
+  padding: 6px 12px;
+  width: 174px;
+}
+
+.starability-slot > label {
+  border-radius: 50%;
+  filter: saturate(0.95);
+}
+
+.starability-slot > input:focus + label {
+  outline: 2px solid #222222;
+  outline-offset: 2px;
+}
+
+.starability-result {
+  background-size: 22px auto;
+  height: 22px;
+  margin: 0.35rem 0 0.55rem;
+  width: 110px;
+}
+
+.starability-result::after {
+  background-size: 22px auto;
+  height: 22px;
+}
+
+.starability-result[data-rating="5"]::after {
+  width: 110px;
+}
+
+.starability-result[data-rating="4"]::after {
+  width: 88px;
+}
+
+.starability-result[data-rating="3"]::after {
+  width: 66px;
+}
+
+.starability-result[data-rating="2"]::after {
+  width: 44px;
+}
+
+.starability-result[data-rating="1"]::after {
+  width: 22px;
+}
