@@ -133,4 +133,4 @@ Do not commit your `.env` file. Use `.env.example` to show required keys without
 
 ## Author
 
-Built by Binay Bhusan Mohanta.
+Built by Binay Bhusan Mohant.
